@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://retro-hero.github.io/sitemap.xml

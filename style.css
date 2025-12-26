@@ -1,0 +1,1093 @@
+/* Неон стиль */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    image-rendering: pixelated;
+}
+
+body {
+    font-family: 'IBM Plex Mono', monospace;
+    background: #0a0a1a;
+    color: #00ffea;
+    line-height: 1.6;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    border-left: 2px solid #ff00ff;
+    border-right: 2px solid #ff00ff;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Скан сеткм */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent 50%, rgba(0, 255, 255, 0.05) 50%);
+    background-size: 100% 4px;
+    z-index: -1;
+    pointer-events: none;
+    animation: scan 10s linear infinite;
+}
+
+@keyframes scan {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-4px); }
+}
+
+/*  Шляпка  */
+header {
+    text-align: center;
+    padding: 2rem 1rem;
+    border-bottom: 3px dashed #ff00ff;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2.2rem;
+    margin-bottom: 0.8rem;
+    color: #00ffea;
+    text-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea;
+    letter-spacing: 2px;
+    animation: neon-pulse 2s infinite alternate;
+}
+
+@keyframes neon-pulse {
+    from { text-shadow: 0 0 10px #00ffea; }
+    to { text-shadow: 0 0 20px #00ffea, 0 0 30px #00ffea; }
+}
+
+.tagline {
+    font-size: 1.1rem;
+    color: #ff00ff;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    animation: subtle-purple-glow 3s infinite alternate;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+nav a {
+    color: #ffff00;
+    text-decoration: none;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    padding: 8px 16px;
+    border: 2px solid #ffff00;
+    background: rgba(255, 255, 0, 0.1);
+    transition: all 0.3s;
+}
+
+nav a:hover {
+    background: #ffff00;
+    color: #0a0a1a;
+    box-shadow: 0 0 15px #ffff00;
+}
+
+/* ===== Переключатель языка ===== */
+.lang-switcher {
+    position: absolute;
+    top: 1px;
+    left: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 101;
+}
+
+.lang-btn {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    background: transparent;
+    color: #c8ff00;
+    border: 2px solid #d0ff00;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+.lang-btn:hover {
+    background: rgba(255, 255, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.lang-btn.active {
+    background: #b3ff00;
+    color: #0a0a1a;
+    box-shadow: 0 0 15px #e5ff00;
+    font-weight: bold;
+}
+
+/* ===== Секции ===== */
+section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(10, 10, 30, 0.9);
+    border: 3px solid #00ffea;
+    position: relative;
+    border-image: linear-gradient(45deg, #00ffea, #ff00ff) 1;
+}
+
+section::before, section::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    z-index: 1;
+}
+
+section::before {
+    top: -7px;
+    left: -7px;
+    background: #ff00ff;
+}
+
+section::after {
+    bottom: -7px;
+    right: -7px;
+    background: #00ffea;
+}
+
+h2 {
+    font-family: 'Press Start 2P', cursive;
+    color: #ff00ff;
+    margin-bottom: 1.2rem;
+    font-size: 1.3rem;
+    border-bottom: 2px dotted #ffff00;
+    padding-bottom: 0.5rem;
+    animation: subtle-purple-glow 3s infinite alternate;
+}
+
+/* ===== СЕТКА ПРОЕКТА 2x2 ===== */
+.project-grid-2x2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 1.5rem 0;
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.original-size {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: contain;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2px;
+    transition: all 0.3s;
+}
+
+.original-size:hover {
+    border-color: rgba(0, 255, 234, 0.3);
+    box-shadow: 0 0 10px rgba(0, 255, 234, 0.2);
+}
+
+.image-label {
+    margin-top: 10px;
+    padding: 6px 10px;
+    background: rgba(10, 10, 30, 0.9);
+    color: #00ffea;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.55rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid rgba(0, 255, 234, 0.3);
+    border-radius: 3px;
+    width: 100%;
+    max-width: 280px;
+    word-wrap: break-word;
+    transition: all 0.3s;
+}
+
+/* Эффект родоки пришли */
+.grid-item:nth-child(3):hover .image-label {
+    animation: parent-alert 0.5s infinite alternate;
+    color: #ff5555;
+    border-color: #ff5555;
+}
+
+.grid-item:nth-child(3):hover::after {
+    content: "Watch out! Mom is coming!";
+    position: absolute;
+    top: -25px;
+    right: 5px;
+    font-size: 0.5rem;
+    font-family: 'Press Start 2P', cursive;
+    color: #ff5555;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 4px 8px;
+    border: 2px solid #ff5555;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 100;
+    animation: text-pulse 0.8s infinite alternate;
+}
+
+@keyframes parent-alert {
+    from { 
+        text-shadow: 0 0 5px #ff5555;
+        box-shadow: 0 0 5px #ff5555;
+    }
+    to { 
+        text-shadow: 0 0 15px #ff5555, 0 0 20px #ff5555;
+        box-shadow: 0 0 15px #ff5555;
+    }
+}
+
+@keyframes text-pulse {
+    from { 
+        box-shadow: 0 0 5px #ff5555;
+        text-shadow: 0 0 5px #ff5555;
+    }
+    to { 
+        box-shadow: 0 0 15px #ff5555, 0 0 20px #ff5555;
+        text-shadow: 0 0 10px #ff5555, 0 0 15px #ff5555;
+    }
+}
+
+/* ===== Навыкастый какой я ===== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+.skill-category {
+    background: rgba(0, 255, 255, 0.1);
+    padding: 1.2rem;
+    border: 2px solid #00ffea;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-category::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(0, 255, 255, 0.2), 
+        transparent);
+    transition: left 0.6s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    border-color: #00ffea;
+    box-shadow: 
+        0 0 15px #00ffea,
+        inset 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.skill-category:hover::before {
+    left: 100%;
+}
+
+.skill-category:hover h3 {
+    color: #00ffea;
+    text-shadow: 
+        0 0 8px #00ffea,
+        0 0 16px #00ffea;
+    animation: neon-pulse 1s infinite alternate;
+}
+
+.skill-category h3 {
+    color: #ffff00;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.skill-category p {
+    line-height: 1.5;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.skill-category:hover p {
+    color: #ffffff;
+}
+
+.skill-category strong {
+    color: #00ffea;
+    font-weight: 500;
+}
+
+.skill-category em {
+    color: #ffff00;
+    font-style: normal;
+    font-size: 0.85em;
+}
+
+/* ===== КОНТАКТЫ ===== */
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.contact-links a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: transparent;
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.email-btn { 
+    border-color: #00ffea; 
+    color: #00ffea; 
+}
+.email-btn:hover { 
+    background: #00ffea; 
+    color: #0a0a1a; 
+}
+
+.github-btn { 
+    border-color: #ff00ff; 
+    color: #ff00ff; 
+    animation: subtle-purple-glow 3s infinite alternate;
+}
+.github-btn:hover { 
+    background: #ff00ff; 
+    color: #0a0a1a; 
+    animation: subtle-purple-glow 1s infinite alternate;
+}
+
+.cv-btn { 
+    border-color: #ffff00; 
+    color: #ffff00;
+    background: rgba(255, 255, 0, 0.1);
+    font-weight: bold;
+}
+.cv-btn:hover { 
+    background: #ffff00; 
+    color: #0a0a1a;
+    box-shadow: 0 0 20px #ffff00;
+}
+
+/*ФУТЕР*/
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1.5rem;
+    color: #888;
+    font-size: 0.7rem;
+    border-top: 1px dashed #ff00ff;
+    font-family: 'Press Start 2P', cursive;
+}
+
+footer .blinking-cursor {
+    display: inline-block;
+    width: 6px;
+    height: 12px;
+    background: #ff00ff;
+    margin-left: 4px;
+    animation: blink 1s infinite;
+    vertical-align: middle;
+    box-shadow: 0 0 5px #ff00ff;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* RETRO HERO STUDIO лейб*/
+.retro-seal {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 120px;
+    height: 120px;
+    z-index: 100;
+    filter: drop-shadow(0 0 5px #00a2ff);
+}
+
+.seal-circle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #00a2ff;
+    border-radius: 50%;
+    background: rgba(0, 10, 30, 0.95);
+    animation: seal-glitch 4s infinite;
+}
+
+.seal-center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    color: #ff00ff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    animation: center-flicker 5s infinite;
+    text-shadow: 0 0 3px #ff00ff;
+}
+
+@keyframes center-flicker {
+    0%, 20%, 22%, 40%, 42%, 60%, 62%, 80%, 82%, 100% {
+        opacity: 0.9;
+        text-shadow: 0 0 3px #ff00ff;
+    }
+    21%, 41%, 61%, 81% {
+        opacity: 1;
+        text-shadow: 0 0 15px #ff00ff, 0 0 25px #ff00ff;
+    }
+    10%, 30%, 50%, 70%, 90% {
+        opacity: 0.4;
+        text-shadow: none;
+    }
+}
+
+.seal-text-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.5rem;
+    color: #00ffea;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: text-flicker 7s infinite;
+}
+
+.seal-text-ring span {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform-origin: 0 54px;
+}
+
+/* Расположение букв по кругу */
+.seal-text-ring span:nth-child(1) { transform: rotate(0deg); }
+.seal-text-ring span:nth-child(2) { transform: rotate(32.7deg); }
+.seal-text-ring span:nth-child(3) { transform: rotate(65.4deg); }
+.seal-text-ring span:nth-child(4) { transform: rotate(98.1deg); }
+.seal-text-ring span:nth-child(5) { transform: rotate(130.8deg); }
+.seal-text-ring span:nth-child(6) { transform: rotate(163.5deg); }
+.seal-text-ring span:nth-child(7) { transform: rotate(196.2deg); }
+.seal-text-ring span:nth-child(8) { transform: rotate(228.9deg); }
+.seal-text-ring span:nth-child(9) { transform: rotate(261.6deg); }
+.seal-text-ring span:nth-child(10) { transform: rotate(294.3deg); }
+.seal-text-ring span:nth-child(11) { transform: rotate(327deg); }
+
+@keyframes text-flicker {
+    0%, 10%, 12%, 20%, 22%, 40%, 42%, 60%, 62%, 85%, 87%, 100% {
+        text-shadow: 0 0 3px #00ffea;
+        opacity: 0.8;
+    }
+    11%, 21%, 41%, 61%, 86% {
+        text-shadow: 0 0 15px #00ffea, 0 0 25px #00ffea;
+        opacity: 1;
+    }
+    5%, 15%, 25%, 45%, 65%, 90% {
+        text-shadow: none;
+        opacity: 0.3;
+    }
+}
+
+/* Эффект моросящей лампы */
+@keyframes seal-glitch {
+    0%, 5% {
+        box-shadow: 
+            0 0 5px #00a2ff,
+            inset 0 0 3px rgba(0, 162, 255, 0.2);
+        border-color: #00a2ff;
+    }
+    5.5% {
+        box-shadow: 
+            0 0 30px #00a2ff,
+            0 0 60px #00a2ff,
+            inset 0 0 20px rgba(0, 162, 255, 0.8);
+        border-color: #00ffea;
+    }
+    6%, 12% {
+        box-shadow: 
+            0 0 3px #00a2ff,
+            inset 0 0 1px rgba(0, 162, 255, 0.1);
+        border-color: #00a2ff;
+    }
+    12.5% {
+        box-shadow: 
+            0 0 40px #00a2ff,
+            0 0 80px #00a2ff,
+            inset 0 0 25px rgba(0, 162, 255, 0.9);
+        border-color: #ffffff;
+    }
+    13%, 25% {
+        box-shadow: 
+            0 0 2px #00a2ff,
+            inset 0 0 1px rgba(0, 162, 255, 0.05);
+        border-color: #0066cc;
+    }
+    25.5% {
+        box-shadow: 
+            0 0 50px #00a2ff,
+            0 0 100px #00a2ff,
+            inset 0 0 30px rgba(0, 162, 255, 1);
+        border-color: #00ffea;
+    }
+    26%, 45% {
+        box-shadow: none;
+        border-color: #004488;
+    }
+    45.5% {
+        box-shadow: 
+            0 0 60px #00a2ff,
+            0 0 120px #00a2ff,
+            0 0 180px #00a2ff,
+            inset 0 0 40px rgba(0, 162, 255, 1);
+        border-color: #ffffff;
+    }
+    46%, 70% {
+        box-shadow: 
+            0 0 1px #00a2ff;
+        border-color: #00a2ff;
+    }
+    70.5%, 71% {
+        box-shadow: 
+            0 0 35px #00a2ff,
+            0 0 70px #00a2ff,
+            inset 0 0 15px rgba(0, 162, 255, 0.7);
+        border-color: #00ffea;
+    }
+    71.5%, 85% {
+        box-shadow: none;
+        border-color: #003366;
+    }
+    85.5% {
+        box-shadow: 
+            0 0 45px #00a2ff,
+            0 0 90px #00a2ff,
+            inset 0 0 35px rgba(0, 162, 255, 0.9);
+        border-color: #ffffff;
+    }
+    86%, 95% {
+        box-shadow: 
+            0 0 4px #00a2ff;
+        border-color: #00a2ff;
+    }
+    95.5% {
+        box-shadow: 
+            0 0 20px #00a2ff,
+            0 0 40px #00a2ff,
+            inset 0 0 10px rgba(0, 162, 255, 0.6);
+        border-color: #00ffea;
+    }
+    96%, 100% {
+        box-shadow: 
+            0 0 2px #00a2ff;
+        border-color: #00a2ff;
+    }
+}
+
+.retro-seal:hover .seal-circle {
+    animation: seal-hover-glow 1.5s ease-in-out infinite alternate;
+}
+
+.retro-seal:hover .seal-center-text {
+    animation: none;
+    text-shadow: 0 0 10px #ff00ff;
+    opacity: 1;
+}
+
+.retro-seal:hover .seal-text-ring {
+    animation: none;
+    text-shadow: 0 0 8px #00ffea;
+    opacity: 1;
+}
+
+@keyframes seal-hover-glow {
+    from {
+        box-shadow: 
+            0 0 15px #00a2ff,
+            0 0 30px #00a2ff,
+            inset 0 0 10px rgba(0, 162, 255, 0.3);
+    }
+    to {
+        box-shadow: 
+            0 0 25px #00a2ff,
+            0 0 50px #00a2ff,
+            0 0 75px #00a2ff,
+            inset 0 0 20px rgba(0, 162, 255, 0.5);
+    }
+}
+
+/* Искры(может поменяю позже цвет-подумаю) */
+.sparks-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 120px;
+    height: 120px;
+    pointer-events: none;
+    z-index: 9;
+    overflow: visible;
+}
+
+.spark {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    opacity: 0;
+    filter: blur(0.5px);
+    animation: 
+        spark-fall calc(var(--duration, 3s) + var(--random-offset, 0s)) infinite var(--delay, 0s),
+        spark-glow 1.5s infinite alternate;
+}
+
+/* переменные для искр */
+.spark:nth-child(1)  { --start-x: 60px; --start-y: 60px; --end-x: 80px; --end-y: 1000px; --duration: 2.5s; --delay: 0s;    --random-offset: 0.3s; --color-shift: 0s; }
+.spark:nth-child(2)  { --start-x: 55px; --start-y: 55px; --end-x: 40px; --end-y: 950px; --duration: 2.8s; --delay: 0.2s;  --random-offset: 0.5s; --color-shift: 0.5s; }
+.spark:nth-child(3)  { --start-x: 65px; --start-y: 65px; --end-x: 100px; --end-y: 1050px; --duration: 3.1s; --delay: 0.4s;  --random-offset: 0.2s; --color-shift: 1s; }
+.spark:nth-child(4)  { --start-x: 50px; --start-y: 50px; --end-x: 20px; --end-y: 980px; --duration: 2.7s; --delay: 0.6s;  --random-offset: 0.4s; --color-shift: 1.5s; }
+.spark:nth-child(5)  { --start-x: 70px; --start-y: 70px; --end-x: 120px; --end-y: 1100px; --duration: 3.3s; --delay: 0.8s;  --random-offset: 0.6s; --color-shift: 2s; }
+.spark:nth-child(6)  { --start-x: 45px; --start-y: 45px; --end-x: 0px; --end-y: 920px; --duration: 2.6s; --delay: 1.0s;  --random-offset: 0.1s; --color-shift: 0.3s; }
+.spark:nth-child(7)  { --start-x: 75px; --start-y: 75px; --end-x: 140px; --end-y: 1080px; --duration: 3.0s; --delay: 1.2s;  --random-offset: 0.7s; --color-shift: 0.8s; }
+.spark:nth-child(8)  { --start-x: 40px; --start-y: 40px; --end-x: -20px; --end-y: 960px; --duration: 2.9s; --delay: 1.4s;  --random-offset: 0.4s; --color-shift: 1.2s; }
+.spark:nth-child(9)  { --start-x: 80px; --start-y: 80px; --end-x: 160px; --end-y: 1120px; --duration: 3.2s; --delay: 1.6s;  --random-offset: 0.9s; --color-shift: 1.8s; }
+.spark:nth-child(10) { --start-x: 35px; --start-y: 35px; --end-x: -40px; --end-y: 900px; --duration: 2.4s; --delay: 1.8s;  --random-offset: 0.2s; --color-shift: 0.6s; }
+.spark:nth-child(11) { --start-x: 58px; --start-y: 58px; --end-x: 60px; --end-y: 1020px; --duration: 3.4s; --delay: 2.0s;  --random-offset: 0.5s; --color-shift: 0.9s; }
+.spark:nth-child(12) { --start-x: 62px; --start-y: 62px; --end-x: -10px; --end-y: 970px; --duration: 2.3s; --delay: 2.2s;  --random-offset: 0.3s; --color-shift: 0.4s; }
+.spark:nth-child(13) { --start-x: 52px; --start-y: 52px; --end-x: 90px; --end-y: 1060px; --duration: 3.5s; --delay: 2.4s;  --random-offset: 0.8s; --color-shift: 1.1s; }
+.spark:nth-child(14) { --start-x: 68px; --start-y: 68px; --end-x: -30px; --end-y: 930px; --duration: 2.8s; --delay: 2.6s;  --random-offset: 0.2s; --color-shift: 1.6s; }
+.spark:nth-child(15) { --start-x: 42px; --start-y: 42px; --end-x: 110px; --end-y: 1090px; --duration: 3.1s; --delay: 2.8s;  --random-offset: 0.6s; --color-shift: 0.7s; }
+
+@keyframes spark-fall {
+    0% {
+        transform: 
+            translate(
+                calc(var(--start-x) + var(--shake-x, 0px)), 
+                calc(var(--start-y) + var(--shake-y, 0px))
+            ) 
+            scale(1);
+        opacity: 0;
+        animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    10% {
+        opacity: 1;
+        transform: 
+            translate(
+                calc(var(--start-x) + var(--shake-x, 0px)), 
+                calc(var(--start-y) + var(--shake-y, 0px))
+            ) 
+            scale(1.3);
+        animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    }
+    20% {
+        /* Случайное дрожание в полете */
+        --shake-x: calc(sin(var(--time-var, 0) * 10) * 3px);
+        --shake-y: calc(cos(var(--time-var, 0) * 8) * 2px);
+    }
+    40% {
+        --shake-x: calc(sin(var(--time-var, 0) * 15) * 5px);
+        --shake-y: calc(cos(var(--time-var, 0) * 12) * 3px);
+    }
+    60% {
+        --shake-x: calc(sin(var(--time-var, 0) * 20) * 8px);
+        --shake-y: calc(cos(var(--time-var, 0) * 18) * 4px);
+    }
+    80% {
+        opacity: 0.7;
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
+    }
+    100% {
+        transform: 
+            translate(
+                calc(var(--end-x) + var(--shake-x, 0px)), 
+                calc(var(--end-y) + var(--shake-y, 0px))
+            ) 
+            scale(0.3);
+        opacity: 0;
+        --shake-x: calc(sin(var(--time-var, 0) * 25) * 12px);
+        --shake-y: calc(cos(var(--time-var, 0) * 22) * 6px);
+    }
+}
+
+@keyframes spark-glow {
+    0%, 100% { 
+        background: #00a2ff;
+        box-shadow: 
+            0 0 calc(3px + var(--glow-intensity, 0px)) #00a2ff,
+            0 0 calc(6px + var(--glow-intensity, 0px)) #00a2ff,
+            0 0 calc(12px + var(--glow-intensity, 0px)) #00a2ff;
+        --glow-intensity: 2px;
+    }
+    25% { 
+        background: #00ffea;
+        box-shadow: 
+            0 0 calc(4px + var(--glow-intensity, 0px)) #00ffea,
+            0 0 calc(8px + var(--glow-intensity, 0px)) #00ffea,
+            0 0 calc(16px + var(--glow-intensity, 0px)) #00ffea;
+        --glow-intensity: 4px;
+    }
+    50% { 
+        background: #ff00ff;
+        box-shadow: 
+            0 0 calc(5px + var(--glow-intensity, 0px)) #ff00ff,
+            0 0 calc(10px + var(--glow-intensity, 0px)) #ff00ff,
+            0 0 calc(20px + var(--glow-intensity, 0px)) #ff00ff;
+        --glow-intensity: 6px;
+    }
+    75% { 
+        background: #ffff00;
+        box-shadow: 
+            0 0 calc(4px + var(--glow-intensity, 0px)) #ffff00,
+            0 0 calc(8px + var(--glow-intensity, 0px)) #ffff00,
+            0 0 calc(16px + var(--glow-intensity, 0px)) #ffff00;
+        --glow-intensity: 3px;
+    }
+}
+
+/* Случайные параметры рандом*/
+.spark:nth-child(odd) {
+    --time-var: 0.5;
+    --glow-intensity: 3px;
+}
+.spark:nth-child(even) {
+    --time-var: 1.0;
+    --glow-intensity: 5px;
+}
+.spark:nth-child(3n) {
+    --time-var: 1.5;
+    --glow-intensity: 2px;
+}
+.spark:nth-child(4n) {
+    --time-var: 2.0;
+    --glow-intensity: 4px;
+}
+.spark:nth-child(5n) {
+    --time-var: 2.5;
+    --glow-intensity: 6px;
+}
+
+/* Разный размер искр */
+.spark:nth-child(1), .spark:nth-child(6), .spark:nth-child(11) {
+    width: 1px; height: 1px; /* Маленькие */
+}
+.spark:nth-child(2), .spark:nth-child(7), .spark:nth-child(12) {
+    width: 3px; height: 3px; /* Средние */
+}
+.spark:nth-child(3), .spark:nth-child(8), .spark:nth-child(13) {
+    width: 2px; height: 2px; /* Стандартные */
+}
+.spark:nth-child(4), .spark:nth-child(9), .spark:nth-child(14) {
+    width: 4px; height: 4px; /* Большие */
+}
+.spark:nth-child(5), .spark:nth-child(10), .spark:nth-child(15) {
+    width: 2.5px; height: 2.5px; /* Средне-крупные */
+}
+
+
+/* ===== Анимации ===== */
+@keyframes subtle-purple-glow {
+    from { text-shadow: 0 0 1px #ff00ff; }
+    to { text-shadow: 0 0 8px #ff00ff; }
+}
+
+/* Адаптивные моменты */
+@media (max-width: 992px) {
+    body {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .project-grid-2x2 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .image-label {
+        font-size: 0.5rem;
+        padding: 5px 8px;
+    }
+    
+    .retro-seal {
+        width: 90px;
+        height: 90px;
+        top: 15px;
+        right: 15px;
+    }
+
+    .lang-switcher {
+        top: 15px;
+        right: 15px;
+    }
+    
+    .seal-center-text {
+        font-size: 0.45rem;
+    }
+    
+    .seal-text-ring {
+        font-size: 0.4rem;
+    }
+    
+    .seal-text-ring span {
+        transform-origin: 0 40px;
+    }
+    
+    .sparks-container {
+        top: 50px;
+        right: 50px;
+        width: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+        border: none;
+    }
+    
+    header {
+        padding: 1.5rem 0.5rem;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .tagline {
+        font-size: 1rem;
+    }
+
+    .lang-switcher {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        display: flex !important;
+        justify-content: center !important;
+        width: 100% !important;
+        margin: 15px auto 10px auto !important;
+        order: 2; /
+    }
+    .lang-btn {
+        font-size: 0.7rem !important;
+        padding: 8px 16px !important;
+        margin: 0 5px !important;
+        background: #d0ff00 !important;
+        color: #000000 !important;
+        border-color: #d0ff00  !important;
+    }
+    
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+    }
+    
+    nav a {
+        width: 200px;
+        font-size: 0.7rem;
+    }
+    
+    section {
+        padding: 1.2rem;
+        margin: 1.5rem 0;
+    }
+    
+    h2 {
+        font-size: 1.1rem;
+    }
+    
+    .project-grid-2x2 {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .original-size {
+        max-height: 220px;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .contact-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contact-links a {
+        width: 200px;
+    }
+    
+    .retro-seal {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .seal-text-ring span {
+        transform-origin: 0 35px;
+    }
+    
+    .sparks-container {
+        display: none; /* Скрыть искры на телефонах дабы не моросить */
+    }
+    
+    footer {
+        padding: 1rem;
+        font-size: 0.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.3rem;
+    }
+    
+    .tagline {
+        font-size: 0.9rem;
+    }
+    
+    .lang-btn {
+        font-size: 0.6rem;
+        padding: 4px 8px;
+    }
+
+    .image-label {
+        font-size: 0.45rem;
+        padding: 4px 6px;
+    }
+    
+    .skill-category p {
+        font-size: 0.85rem;
+    }
+    
+    .contact-links a {
+        width: 180px;
+        font-size: 0.65rem;
+        padding: 8px 16px;
+    }
+    
+    .retro-seal {
+        width: 70px;
+        height: 70px;
+    }
+}
+#musicBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(10, 10, 26, 0.329);
+    border: 2px solid #ffff00;
+    color: #ffff00;
+    font-size: 1.8rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 0 20px #ffff00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Arial', sans-serif;
+    transition: all 0.3s;
+}
+
+#musicBtn:hover {
+    background: #ffff00;
+    color: #0a0a1a;
+    transform: scale(1.1);
+    box-shadow: 0 0 30px #ffff00;
+}
+
+/* Адаптация для фонов */
+@media (max-width: 768px) {
+    #musicBtn {
+        width: 80px !important;
+        height: 80px !important;
+        font-size: 2.5rem !important;
+        bottom: 40px !important;
+        right: 40px !important;
+        z-index: 10000 !important;
+        border-width: 1px !important; 
+        box-shadow: 0 0 30px #ffff00 !important;
+    }
+    
+    /* Отключаем hover - не нуж */
+    #musicBtn:hover {
+        transform: none;
+        background: rgba(10, 10, 26, 0.336);
+        color: #ffff00;
+    }
+}
+
+@media (max-width: 480px) {
+    #musicBtn {
+        width: 70px !important; /* Поменьше на телефоны */
+        height: 70px !important;
+        font-size: 2.2rem !important;
+        bottom: 30px !important;
+        right: 30px !important;
+    }
+}
+
+/* Адаптация для майфунов. Убирать браузерные стили для кнопки */
+#musicBtn {
+    -webkit-appearance: none;  /* iOS/Safari */
+    -moz-appearance: none;     /* Firefox */
+    appearance: none;
+    -webkit-tap-highlight-color: transparent; /* синее выделение */
+}
+
+/* Системные аудио-контролы */
+audio {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    visibility: hidden !important;
+}
